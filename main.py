@@ -3,10 +3,12 @@ import asyncio
 import subprocess
 from easydict import EasyDict
 from simplejson import loads
+import os
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
 config = {}
 
-with open("config.json", 'r', encoding='utf-8') as file_data:
+with open(os.path.join(dir_path, "config.json"), 'r', encoding='utf-8') as file_data:
 	text = file_data.read()
 	print("text :", text)
 	config = EasyDict(loads(text))
